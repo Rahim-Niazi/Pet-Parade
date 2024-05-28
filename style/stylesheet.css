@@ -273,3 +273,16 @@ justify-content: center;
   bottom: 20px;
   right: 10px;
 }
+
+#banner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("/images/calltoactionbanner.jpeg");
+  width: 100%;
+  height: 40vh;
+  background-size: cover;
+  background-position: center;
+}
