@@ -10,6 +10,11 @@ html{
   scroll-behavior: smooth;
 }
 
+
+
+
+
+
 /* Global Styles */
 
 h1{
@@ -77,6 +82,12 @@ body{
   width: 100%;
 }
 
+
+
+
+
+
+
 /*Header Start*/
 
 /*Navigation Bar*/
@@ -139,6 +150,11 @@ body{
   display: none;
 }
 
+
+
+
+
+
 /*START OF HOMEPAGE*/
 
 /*Hero Banner*/
@@ -175,6 +191,10 @@ justify-content: center;
   font-weight: 700;
   font-size: 15px;
 }
+
+
+
+
 
 /*Feature Section*/
 
@@ -452,6 +472,8 @@ footer .copyright{
 
 
 
+
+
 /*START OF SHOP PAGE*/
 
 #page-header{
@@ -487,6 +509,10 @@ footer .copyright{
   font-size: 16px;
   font-weight: 600;
 }
+
+
+
+
 
 /*SINGLE PRODUCT PAGE START*/
 
@@ -540,12 +566,35 @@ footer .copyright{
   color: #FFF;
 }
 
-
+/*SINGLE PRODUCT PAGE END*/
 
 
 /*END OF SHOP PAGE*/
 
 
+
+
+/*START OF ABOUT US PAGE*/
+
+#page-header.about-header{
+  background-image: url(/images/aboutus.jpg);
+}
+
+#about-head{
+  display: flex;
+  align-items: center;
+}
+
+#about-head img{
+  width: 50%;
+  height: auto;
+}
+
+#about-head div{
+  padding-left: 40px;
+}
+
+/*END OF ABOUT US PAGE*/
 
 
 /*START OF MEDIA QUERY*/
@@ -632,6 +681,19 @@ footer .copyright{
     min-width: 100%;
     height: 30vh;
   }
+
+  #about-head{
+    flex-direction: column;
+    }
+
+    #about-head img{
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  #about-head div{
+    padding-left: 0px;
+  }
 }
 
 @media (max-width: 477px){
@@ -697,4 +759,18 @@ footer .copyright{
   #prodetails .single-pro-details{
     width: 100%;
   }
+
+  #about-head{
+    flex-direction: column;
+  }
+
+  #about-head img{
+      width: 100%;
+      margin-bottom: 20px;
+  }
+
+  #about-head div{
+    padding-left: 0px;
+  }
+
 }
