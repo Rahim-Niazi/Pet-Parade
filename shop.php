@@ -14,13 +14,23 @@
     <body>
         <section id="header">
             <a href="#"><img src="images/" class="logo" alt=""></a>
-
+    
             <div>
                 <ul id="navbar">
-                    <li><a class="active" href="index.html">Home</a> </li>
-                    <li><a href="shop.html">Shop</a> </li>
-                    <li><a href="about.html">About</a> </li>
-                    <li><a href="contact.html">Contact</a> </li>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <?php
+                    if (isset($_SESSION['user_id'])) {
+                        // User is logged in, show logout button
+                        echo '<li><a href="logout.php">Logout</a></li>';
+                    } else {
+                        // User is not logged in, show sign up and login links
+                        echo '<li><a href="signup.php">Sign Up</a></li>';
+                        echo '<li><a href="login.php">Login</a></li>';
+                    }
+                    ?>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                     <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
                     <a href="#" id="close"><i class="far fa-times"></i></a>
                 </ul>
@@ -31,51 +41,14 @@
             </div>
         </section>
 
-        <section id="hero">
-            <h4>Best Accessories</h4>
-            <h2>Super Value Deals</h2>
-            <h1>On all Products</h1>
+        <section id="page-header">
+            <h2>The Best Accessories</h2>
             <p>Save more with deals upto 70% off!</p>
-            <button>Shop now!</button>
         </section>
-
-        <section id="feature" class="section-p1">
-            <div class="fe-box">
-                <img src="images/features/f1.png" alt="">
-                <h6>Free Shipping</h6>
-            </div>
-
-            <div class="fe-box">
-                <img src="images/features/f2.png" alt="">
-                <h6>Online order</h6>
-            </div>
-
-            <div class="fe-box">
-                <img src="images/features/f3.png" alt="">
-                <h6>Save Money</h6>
-            </div>
-
-            <div class="fe-box">
-                <img src="images/features/f4.png" alt="">
-                <h6>Promotions</h6>
-            </div>
-
-            <div class="fe-box">
-                <img src="images/features/f5.png" alt="">
-                <h6>Happy Sell</h6>
-            </div>
-
-            <div class="fe-box">
-                <img src="images/features/f6.png" alt="">
-                <h6>Support</h6>
-            </div>
-            </section>
         
         <section id="product1" class="section-p1">
-            <h2>Featured Products</h2>
-            <p>Food for Pets</p>
             <div class="pro-container">
-                <div class="pro">
+                <div class="pro" onclick="window.location.href='singleproduct.html';">
                     <img src="images/catfood.jpg" alt="">
                     <div class="des">
                         <span>Whiskas</span>
@@ -203,19 +176,7 @@
                     </div>
                     <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
                 </div>
-            </div>
-        </section>
 
-        <section id="banner" class="section-m1">
-            <h4>Exchange Services</h4>
-            <h2>Up to <span>70% off</span> All pet products and accessories </h2>
-            <button class="normal">Explore more</button>
-        </section>
-
-        <section id="product1" class="section-p1">
-            <h2>New Products</h2>
-            <p>Latest in the market!</p>
-            <div class="pro-container">
                 <div class="pro">
                     <img src="images/chewtoy.jpg" alt="">
                     <div class="des">
@@ -347,19 +308,10 @@
             </div>
         </section>
 
-        <section id="sm-banner" class="section-p1">
-            <div class="banner-box">
-                <h4>Best Deals</h4>
-                <h2>Buy 2 get 1 free!</h2>
-                <span>High quality products!</span>
-                <button class="white">Learn More</button>
-            </div>
-            <div class="banner-box">
-                <h4>Best Deals</h4>
-                <h2>Buy 2 get 1 free!</h2>
-                <span>High quality products!</span>
-                <button class="white">Learn More</button>
-            </div>
+        <section id="pagination" class="section-p1">
+          <a href="#">1</a>
+          <a href="#">2</a>
+          <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
         </section>
 
         <footer class="section-p1">
