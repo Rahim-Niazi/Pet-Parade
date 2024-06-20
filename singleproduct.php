@@ -2,22 +2,26 @@
 include_once('db_config.php');
 session_start();
 
-// Function to add product to cart
-function addToCart($product_id) {
-    if(isset($_SESSION['cart'][$product_id])) {
-        $_SESSION['cart'][$product_id] += 1;
-    } else {
-        $_SESSION['cart'][$product_id] = 1;
-    }
+if (!isset($_GET['id'])) {
+    die("Product ID is missing.");
 }
 
-// Check if 'add' parameter is set in the URL and add the product to the cart
-if (isset($_GET['add'])) {
-    $product_id = intval($_GET['add']);
-    addToCart($product_id);
-    header('Location: cart.php');
-    exit;
+$product_id = intval($_GET['id']); // Ensure the product ID is an integer to prevent SQL injection
+
+// Fetch product details from the database
+$sql = "SELECT product_name, description, price, Images FROM products WHERE product_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $product_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $product = $result->fetch_assoc();
+} else {
+    die("Product not found.");
 }
+$stmt->close();
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +39,6 @@ if (isset($_GET['add'])) {
 <body>
 <section id="header">
     <a href="#"><img src="images/" class="logo" alt=""></a>
-
     <div>
         <ul id="navbar">
             <li><a class="active" href="index.php">Home</a></li>
@@ -60,22 +63,45 @@ if (isset($_GET['add'])) {
     </div>
 </section>
 
-<section id="page-header">
-    <h2>The Best Accessories</h2>
-    <p>Save more with deals up to 70% off!</p>
+<section id="prodetails" class="section-p1">
+    <div class="single-product-image">
+        <img src="images/<?php echo htmlspecialchars($product['Images']); ?>" width="100%" id="MainImg" alt="">
+    </div>
+
+    <div class="single-pro-details">
+        <h6><?php echo htmlspecialchars($product['product_name']); ?></h6>
+        <h4><?php echo htmlspecialchars($product['description']); ?></h4>
+        <h2>$<?php echo htmlspecialchars($product['price']); ?></h2>
+        <form action="add_to_cart.php" method="POST">
+            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+            <select name="option">
+                <option>Select Amount</option>
+                <option>Adult</option>
+                <option>Kitten</option>
+            </select>
+            <input type="number" name="quantity" value="1" min="1">
+            <button type="submit" class="normal">Add to Cart</button>
+        </form>
+        <h4>Product Details</h4>
+        <span><?php echo htmlspecialchars($product['description']); ?></span>
+    </div>
 </section>
 
 <section id="product1" class="section-p1">
+    <h2>Featured Products</h2>
+    <p>Latest in the market!</p>
     <div class="pro-container">
         <?php
-        // Fetch products from the database
-        $sql = "SELECT product_id, product_name, description, price, Images FROM products";
+        // Fetch featured products from the database
+        include_once('db_config.php'); // Reconnect to the database
+
+        $sql = "SELECT product_id, product_name, description, price, Images FROM products LIMIT 4";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo '<div class="pro" onclick="window.location.href=\'singleproduct.php?id=' . $row["product_id"] . '\';">';
-                echo '<img src="images/' . $row["Images"] . '" alt="">';
+            while ($row = $result->fetch_assoc()) {
+                echo '<div class="pro">';
+                echo '<img src="images/' . htmlspecialchars($row["Images"]) . '" alt="">';
                 echo '<div class="des">';
                 echo '<span>' . htmlspecialchars($row["product_name"]) . '</span>';
                 echo '<h5>' . htmlspecialchars($row["description"]) . '</h5>';
@@ -88,21 +114,15 @@ if (isset($_GET['add'])) {
                 echo '</div>';
                 echo '<h4>$' . htmlspecialchars($row["price"]) . '</h4>';
                 echo '</div>';
-               
+                echo '<a href="prodetails.php?id=' . $row["product_id"] . '"><i class="fal fa-shopping-cart cart"></i> </a>';
                 echo '</div>';
             }
         } else {
-            echo "0 results";
+            echo "<p>No featured products found.</p>";
         }
         $conn->close();
         ?>
     </div>
-</section>
-
-<section id="pagination" class="section-p1">
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
 </section>
 
 <footer class="section-p1">
@@ -149,7 +169,7 @@ if (isset($_GET['add'])) {
     </div>
 
     <div class="copright">
-        <p>&copy; 2024, Pet Parade - Best Shop for Your Pet!</p>
+        <p>C 2024, Pet Parade - Best Shop for Your Pet!</p>
     </div>
 </footer>
 

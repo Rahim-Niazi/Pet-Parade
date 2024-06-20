@@ -22,8 +22,8 @@ session_start();
 
         <div>
             <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
+                <li><a class="active" href="index.php">Home</a></li>
+                <li><a href="shop.php">Shop</a></li>
                 <?php
                 if (isset($_SESSION['user_id'])) {
                     // User is logged in, show logout button
@@ -34,25 +34,26 @@ session_start();
                     echo '<li><a href="login.php">Login</a></li>';
                 }
                 ?>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-bag"></i></a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
         <div id="mobile">
-            <a href="cart.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+            <a href="cart.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
-        <section id="hero">
-            <img src="/images/petaccessories.jpg" alt="">
-            <h4>Best Accessories</h4>
-            <h2>Super Value Deals</h2>
-            <h1>On all Products</h1>
-            <p>Save more with deals upto 70% off!</p>
-            <button>Shop now!</button>
-        </section>
+    <section id="hero">
+    <img src="/images/petaccessories.jpg" alt="" >
+    <h4>Best Accessories</h4>
+    <h2>Super Value Deals</h2>
+    <h1>On all Products</h1>
+    <p>Save more with deals upto 70% off!</p>
+    <button>Shop now!</button>
+</section>
+
 
         <section id="feature" class="section-p1">
             <div class="fe-box">
