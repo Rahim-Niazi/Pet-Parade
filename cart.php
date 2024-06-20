@@ -138,7 +138,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                 <td><strong>$<?php echo htmlspecialchars($total); ?></strong></td>
             </tr>
         </table>
-        <button class="normal">Proceed to Checkout</button>
+        <a href="checkout.php" class="button normal">Proceed to Checkout</a>
     </div>
 </section>
 

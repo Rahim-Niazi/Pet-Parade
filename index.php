@@ -45,14 +45,15 @@ session_start();
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
+
+    
     <section id="hero">
-    <img src="/images/petaccessories.jpg" alt="" >
     <h4>Best Accessories</h4>
     <h2>Super Value Deals</h2>
     <h1>On all Products</h1>
     <p>Save more with deals upto 70% off!</p>
     <button>Shop now!</button>
-</section>
+    </section>
 
 
         <section id="feature" class="section-p1">

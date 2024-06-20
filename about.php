@@ -54,7 +54,7 @@ session_start();
         <section id="about-head" class="section-p1">
             <img src="/images/sample img.jpg" alt="">
             <div>
-                <2> Who we are.</2>
+                <h2> Who we are.</h2>
                 <p>Blah blah blah blah blah blah blah blah blah blah</p>
                 <abbr title="">This is a sample line of text that i wish to check out pay it no heed</abbr>
                 <br><br>

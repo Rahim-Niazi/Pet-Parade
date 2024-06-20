@@ -87,44 +87,6 @@ $conn->close();
     </div>
 </section>
 
-<section id="product1" class="section-p1">
-    <h2>Featured Products</h2>
-    <p>Latest in the market!</p>
-    <div class="pro-container">
-        <?php
-        // Fetch featured products from the database
-        include_once('db_config.php'); // Reconnect to the database
-
-        $sql = "SELECT product_id, product_name, description, price, Images FROM products LIMIT 4";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo '<div class="pro">';
-                echo '<img src="images/' . htmlspecialchars($row["Images"]) . '" alt="">';
-                echo '<div class="des">';
-                echo '<span>' . htmlspecialchars($row["product_name"]) . '</span>';
-                echo '<h5>' . htmlspecialchars($row["description"]) . '</h5>';
-                echo '<div class="star">';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '</div>';
-                echo '<h4>$' . htmlspecialchars($row["price"]) . '</h4>';
-                echo '</div>';
-                echo '<a href="prodetails.php?id=' . $row["product_id"] . '"><i class="fal fa-shopping-cart cart"></i> </a>';
-                echo '</div>';
-            }
-        } else {
-            echo "<p>No featured products found.</p>";
-        }
-        $conn->close();
-        ?>
-    </div>
-</section>
-
 <footer class="section-p1">
     <div class="col">
         <h4>Contact</h4>
