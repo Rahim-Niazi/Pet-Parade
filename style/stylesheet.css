@@ -1002,19 +1002,120 @@ body .admin {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*END OF ADMIN PORTAL*/
+
+
+
+
+
+/*START OF ADMIN PANEL*/
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.dashboard-navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-website-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.dashboard-logout-btn {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dashboard-logout-btn:hover {
+  background-color: #ccc;
+}
+
+.dashboard-sidebar {
+  background-color: #f0f0f0;
+  width: 200px;
+  padding: 1rem;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard-sidebar li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.dashboard-sidebar li:hover {
+  background-color: #f7f7f7;
+}
+
+.dashboard-sidebar a {
+  text-decoration: none;
+  color: #333;
+}
+
+.dashboard-main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+
+
+
+
+/*END OF ADMIN PANEL*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*START OF MEDIA QUERY*/
