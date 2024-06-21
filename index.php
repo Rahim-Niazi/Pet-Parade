@@ -12,7 +12,6 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Petparade</title>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-        
         <link rel="stylesheet" href="style/stylesheet.css">
     </head>
 
