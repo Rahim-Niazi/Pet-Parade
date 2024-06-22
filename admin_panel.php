@@ -6,6 +6,33 @@ if (!isset($_SESSION['admin'])) {
     exit();
 }
 
+require_once 'db_config.php';
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$query = "SELECT * FROM products";
+$result = mysqli_query($conn, $query);
+
+$table_rows = '';
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $table_rows .= "<tr>";
+        $table_rows .= "<td>" . $row['product_id'] . "</td>";
+        $table_rows .= "<td>" . $row['product_name'] . "</td>";
+        $table_rows .= "<td>" . $row['price'] . "</td>";
+        $table_rows .= "<td><img src='images/" . $row['Images'] . "' alt='Product Image' class='product-image'></td>";
+        $table_rows .= "<td><a href='delete_product.php?product_id=" . $row['product_id'] . "' class='btn btn-danger'>Delete</a></td>";
+        $table_rows .= "</tr>";
+    }
+    
+} else {
+    $table_rows = "<tr><td colspan='3'>No products found</td></tr>";
+}
+
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -50,28 +77,29 @@ if (!isset($_SESSION['admin'])) {
                 <div class="sidebar">
                     <div class="sidebar-content">
                         <ul>
-                            <li><a href="admin_panel.html" class="button1" href="#">Products</a></li>
+                            <li><a href="admin_panel.php" class="button1" href="#">Products</a></li>
                             <li><a href="admin_orders.html" class="button2" href="#">Orders</a></li>
-                            <li><a href="admin_products.html" class="button3" href="#">Create Product</a></li>
+                            <li><a href="admin_products.php" class="button3" href="#">Create Product</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-md-9">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Price</th>
-                            <th>Created At</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Add your table data here -->
-                    </tbody>
-                </table>
-            </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Images</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php echo $table_rows; ?>
+        </tbody>
+    </table>
+</div>
         </div>
     </div>
      

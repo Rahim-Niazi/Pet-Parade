@@ -6,23 +6,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productName = $conn->real_escape_string($_POST['product_name']);
     $description = $conn->real_escape_string($_POST['description']);
     $price = $conn->real_escape_string($_POST['price']);
-    $stock = $conn->real_escape_string($_POST['stock']);
+    // Handle image upload
+    $image = $_FILES['product_image'];
+    $imageName = $image['name'];
+    $imageTmpName = $image['tmp_name'];
+    $imageError = $image['error'];
+    $imageSize = $image['size'];
 
-    $createdAt = date('Y-m-d H:i:s');
+    $uploadDir = './images/';
+    $uploadFile = $uploadDir . basename($imageName);
 
-    $sql = "INSERT INTO products (product_name, description, price, stock, created_at) 
-            VALUES ('$productName', '$description', '$price', '$stock', '$createdAt')";
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
 
-    if ($conn->query($sql) === TRUE) {
-        $conn->close();
-        header("Location: admin_panel.php");
-        exit();
+    if ($imageError === 0) {
+        if (move_uploaded_file($imageTmpName, $uploadFile)) {
+            $sql = "INSERT INTO products (product_name, description, price, image_path) 
+                    VALUES ('$productName', '$description', '$price', '$uploadFile')";
+
+            if ($conn->query($sql) === TRUE) {
+                $conn->close();
+                header("Location: admin_panel.php");
+                exit();
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        } else {
+            echo "There was an error uploading the image.";
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $imageError;
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,9 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="sidebar">
                     <div class="sidebar-content">
                         <ul>
-                            <li><a href="admin_panel.html" class="button1" href="#">Products</a></li>
-                            <li><a href="admin_orders.html" class="button2" href="#">Orders</a></li>
-                            <li><a href="admin_products.html" class="button3" href="#">Create Product</a></li>
+                            <li><a href="admin_panel.php" class="button1">Products</a></li>
+                            <li><a href="admin_orders.html" class="button2">Orders</a></li>
+                            <li><a href="admin_products.php" class="button3">Create Product</a></li>
                         </ul>
                     </div>
                 </div>
@@ -78,30 +95,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="col-md-9">
         <h2>Create Product</h2>
-        <form method="POST" action="admin_products.php">
+        <form method="POST" action="admin_products.php" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="product-name">Product Name:</label>
-                <input type="text" name="product_name" class="form-control" id="product-name" placeholder="Enter product name">
+                <input type="text" name="product_name" class="form-control" id="product-name" placeholder="Enter product name" required>
             </div>
             <div class="form-group">
                 <label for="product-description">Product Description:</label>
-                <textarea name="description" class="form-control" id="product-description" placeholder="Enter product description"></textarea>
+                <textarea name="description" class="form-control" id="product-description" placeholder="Enter product description" required></textarea>
             </div>
             <div class="form-group">
                 <label for="product-price">Product Price:</label>
-                <input type="number" name="price" class="form-control" id="product-price" placeholder="Enter product price">
-            </div>
-            <div class="form-group">
-                <label for="product-stock">Product Stock:</label>
-                <input type="number" name="stock" class="form-control" id="product-stock" placeholder="Enter product stock">
+                <input type="number" name="price" class="form-control" id="product-price" placeholder="Enter product price" required>
             </div>
             <div class="form-group">
                 <label for="product-image">Product Image:</label>
-                <input type="file" name="product_image" class="form-control" id="product-image">
+                <input type="file" name="product_image" class="form-control" id="product-image" required>
             </div>
             <button type="submit" class="btn btn-primary">Create Product</button>
         </form>
     </div>
-     
 </body>
 </html>

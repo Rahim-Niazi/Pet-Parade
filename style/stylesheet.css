@@ -1140,6 +1140,12 @@ form {
   width: calc(100% - 300px);
 }
 
+.product-image {
+  width: 100px;
+  height: 100px;
+}
+
+
 
 /*END OF ADMIN PANEL*/
 
