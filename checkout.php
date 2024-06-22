@@ -16,19 +16,19 @@ session_start();
     <div class="checkout-page">
         <div id="checkout-page" class="checkout-form">
             <h2>CHECKOUT</h2>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="Name">Name</label>
                 <input type="text" placeholder="Your Name" class="normal">
             </div>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="contact">Contact Number</label>
                 <input type="text" id="contact" name="contact" placeholder="Your Contact Number" class="normal">
             </div>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Your Email Address" class="normal">
             </div>
-            <div class="form-group">
+            <div class="form-group-checkout">
                 <label for="address">Address</label>
                 <textarea id="address" name="address" required class="normal"></textarea>
             </div>

@@ -96,19 +96,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="col-md-9">
         <h2>Create Product</h2>
         <form method="POST" action="admin_products.php" enctype="multipart/form-data">
-            <div class="form-group">
+            <div class="form-group-admin">
                 <label for="product-name">Product Name:</label>
                 <input type="text" name="product_name" class="form-control" id="product-name" placeholder="Enter product name" required>
             </div>
-            <div class="form-group">
+            <div class="form-group-admin">
                 <label for="product-description">Product Description:</label>
                 <textarea name="description" class="form-control" id="product-description" placeholder="Enter product description" required></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group-admin">
                 <label for="product-price">Product Price:</label>
                 <input type="number" name="price" class="form-control" id="product-price" placeholder="Enter product price" required>
             </div>
-            <div class="form-group">
+            <div class="form-group-admin">
                 <label for="product-image">Product Image:</label>
                 <input type="file" name="product_image" class="form-control" id="product-image" required>
             </div>

@@ -877,7 +877,7 @@ body .checkout-page {
   margin-bottom: 20px;
 }
 
-.form-group {
+.form-group-checkout {
   margin-bottom: 20px;
 }
 
@@ -1092,7 +1092,6 @@ body .admin {
   background-color: #f0f0f0;
 }
 
-
 form {
   width: 50%; 
   margin: 40px auto; 
@@ -1133,7 +1132,7 @@ button[type="submit"]:hover {
   background-color: #3e8e41;
 }
 
-form {
+.form-admin {
   position: absolute;
   top: 56px;
   left: 300px; 
