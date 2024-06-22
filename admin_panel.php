@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header("Location: admin_login.php");
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active ml-auto logout-button">
-                    <a class="nav-link" href="#">Logout <span class="sr-only"></span></a>
+                <a class="nav-link" href="admin_logout.php">Logout <span class="sr-only"></span></a>
                 </li>
             </ul>
         </div>
@@ -40,9 +50,9 @@
                 <div class="sidebar">
                     <div class="sidebar-content">
                         <ul>
-                            <li><a class="button1" href="#">Products</a></li>
-                            <li><a class="button2" href="#">Orders</a></li>
-                            <li><a class="button3" href="#">Create Product</a></li>
+                            <li><a href="admin_panel.html" class="button1" href="#">Products</a></li>
+                            <li><a href="admin_orders.html" class="button2" href="#">Orders</a></li>
+                            <li><a href="admin_products.html" class="button3" href="#">Create Product</a></li>
                         </ul>
                     </div>
                 </div>

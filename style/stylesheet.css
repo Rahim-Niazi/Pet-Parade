@@ -1028,10 +1028,11 @@ body .admin {
   top: 56px;
   left: 0;
   width: 300px;
-  height: calc(100vh - 56px); 
+  height: calc(100vh - 56px);
   background-color: #333;
   color: #fff;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .sidebar .sidebar-content .button1:hover{
@@ -1089,6 +1090,54 @@ body .admin {
 
 .table th {
   background-color: #f0f0f0;
+}
+
+
+form {
+  width: 50%; 
+  margin: 40px auto; 
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+input[type="file"] {
+  padding: 10px;
+  border: none;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+form {
+  position: absolute;
+  top: 56px;
+  left: 300px; 
+  width: calc(100% - 300px);
 }
 
 
