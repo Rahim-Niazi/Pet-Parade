@@ -1010,91 +1010,86 @@ body .admin {
 
 /*START OF ADMIN PANEL*/
 
-.dashboard-container {
-  display: flex;
-  flex-direction: row;
-  height: 100vh;
+.navbar-brand{
+  margin-left: 40px;
+  color: #e1e1e1 !important;
 }
 
-.dashboard-navbar {
+.navbar-nav .nav-item.ml-auto {
+  margin-left: 1200px;
+}
+
+.logout-button .nav-link {
+    color: #ffffff !important;
+}
+
+.sidebar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 300px;
+  height: calc(100vh - 56px); 
   background-color: #333;
   color: #fff;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 20px;
 }
 
-.dashboard-website-name {
-  font-size: 1.5rem;
-  font-weight: bold;
+.sidebar .sidebar-content .button1:hover{
+  color: #088178;
 }
 
-.dashboard-logout-btn {
-  background-color: #fff;
-  color: #333;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
+.sidebar .sidebar-content .button2:hover{
+  color: #088178;
 }
 
-.dashboard-logout-btn:hover {
-  background-color: #ccc;
+.sidebar .sidebar-content .button3:hover{
+  color: #088178;
 }
 
-.dashboard-sidebar {
-  background-color: #f0f0f0;
-  width: 200px;
-  padding: 1rem;
+.sidebar-content {
+  padding: 20px;
 }
 
-.dashboard-sidebar ul {
+.sidebar-content ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.dashboard-sidebar li {
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
+.sidebar-content li {
+  margin-bottom: 10px;
 }
 
-.dashboard-sidebar li:hover {
-  background-color: #f7f7f7;
-}
-
-.dashboard-sidebar a {
+.sidebar-content a {
+  color: #fff;
   text-decoration: none;
-  color: #333;
 }
 
-.dashboard-main-content {
-  flex: 1;
-  padding: 2rem;
+.sidebar-content a:hover {
+  color: #ccc;
 }
 
-h1 {
-  margin-top: 0;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th, td {
+.container-fluid {
+  max-width: 1500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
   border: 1px solid #ddd;
-  padding: 0.5rem;
-  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-th {
+.table {
+  margin-bottom: 20px;
+}
+
+.table th, .table td {
+  text-align: auto;
+  margin-left: 100px;
+}
+
+.table th {
   background-color: #f0f0f0;
 }
-
-
-
 
 
 /*END OF ADMIN PANEL*/
