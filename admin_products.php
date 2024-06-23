@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $imageSize = $image['size'];
 
     $uploadDir = './images/';
-    $uploadFile = $uploadDir . basename($imageName);
+    $uploadFile = $uploadDir. basename($imageName);
 
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0777, true);
@@ -22,28 +22,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($imageError === 0) {
         if (move_uploaded_file($imageTmpName, $uploadFile)) {
-            $sql = "INSERT INTO products (product_name, description, price, image_path) 
-                    VALUES ('$productName', '$description', '$price', '$uploadFile')";
+            $sql = "INSERT INTO products (product_name, description, price, Images, image_path) 
+                    VALUES ('$productName', '$description', '$price', '$imageName', '$uploadFile')";
 
             if ($conn->query($sql) === TRUE) {
                 $conn->close();
-                header("Location: admin_panel.php");
+                header("Location: admin_panel.php"); // Redirect to admin_panel.php
                 exit();
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: ". $sql. "<br>". $conn->error;
             }
         } else {
             echo "There was an error uploading the image.";
         }
     } else {
-        echo "Error: " . $imageError;
+        echo "Error: ". $imageError;
     }
 }
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -88,16 +84,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="sidebar-content">
                         <ul>
                             <li><a href="admin_panel.php" class="button1">Products</a></li>
-                            <li><a href="admin_orders.html" class="button2">Orders</a></li>
+                            <li><a href="admin_orders.php" class="button2">Orders</a></li>
                             <li><a href="admin_products.php" class="button3">Create Product</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>.
+    </div>
 
-    <div class="col-md-9">
+    <div class="col-md-9-admin">
         <h2>Create Product</h2>
         <form method="POST" action="admin_products.php" enctype="multipart/form-data">
             <div class="form-group-admin">
@@ -118,38 +114,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn btn-primary">Create Product</button>
         </form>
-    </div>
-    <div class="col-md-9">
-        <h2>Products</h2>
-
-        <?php
-        include 'db_config.php';
-
-        // Fetch product details including the image path
-        $sql = "SELECT * FROM products";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $productName = $row['product_name'];
-                $description = $row['description'];
-                $price = $row['price'];
-                $imagePath = $row['image_path']; // Assuming this is the column name for the image path in your database
-
-                // Display product details with image
-                echo '<div class="product">';
-                echo '<h2>' . $productName . '</h2>';
-                echo '<p>' . $description . '</p>';
-                echo '<p>Price: $' . $price . '</p>';
-                echo '<img src="' . $imagePath . '" alt="' . $productName . '" />';
-                echo '</div>';
-            }
-        } else {
-            echo "No products found.";
-        }
-
-        $conn->close();
-        ?>
     </div>
 </body>
 </html>

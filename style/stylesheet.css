@@ -1010,6 +1010,13 @@ body .admin {
 
 /*START OF ADMIN PANEL*/
 
+.navbar.navbar-expand-lg.navbar-light.bg-success {
+  position: fixed;
+  padding-left: 60px;
+  top: 0;
+  z-index: 1; 
+}
+
 .navbar-brand{
   margin-left: 40px;
   color: #e1e1e1 !important;
@@ -1092,13 +1099,16 @@ body .admin {
   background-color: #f0f0f0;
 }
 
-form {
+.col-md-9-admin {
   width: 50%; 
   margin: 40px auto; 
   padding: 20px;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  left: 30%; 
+  transform: translateX(-50%); 
+  position: relative; 
 }
 
 

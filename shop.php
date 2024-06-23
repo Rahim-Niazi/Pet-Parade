@@ -61,14 +61,13 @@ if (isset($_GET['add'])) {
 </section>
 
 <section id="page-header">
-    <h2>The Best Accessories</h2>
-    <p>Save more with deals up to 70% off!</p>
+    <h2>Browse Our Shop</h2>
+    <p>Only the best items for your pet!!</p>
 </section>
 
 <section id="product1" class="section-p1">
     <div class="pro-container">
         <?php
-        // Fetch products from the database
         $sql = "SELECT product_id, product_name, description, price, Images FROM products";
         $result = $conn->query($sql);
 
@@ -106,52 +105,52 @@ if (isset($_GET['add'])) {
 </section>
 
 <footer class="section-p1">
-    <div class="col">
-        <h4>Contact</h4>
-        <p><strong>Address:</strong> Example Road, Example Street, Filler City</p>
-        <p><strong>Phone:</strong> +02 1234 987/ (+92) 01 2345 5654</p>
-        <p><strong>Shop Hours:</strong> 09:00 - 18:00, Tues - Sat </p>
-        <div class="follow">
-            <h4>Follow us!</h4>
-            <div class="icon">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
+            <div class="col">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Example Road, Example Street, Filler City</p>
+                <p><strong>Phone:</strong> +02 1234 987/ (+92) 01 2345 5654</p>
+                <p><strong>Shop Hours:</strong> 09:00 - 18:00, Tues - Sat </p>
+                <div class="follow">
+                    <h4>Follow us!</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col">
-        <h4>About</h4>
-        <a href="#">About us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms and Conditions</a>
-        <a href="#">Contact Us</a>
-    </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
 
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-    </div>
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
 
-    <div class="col install">
-        <h4>Install Our App!</h4>
-        <p>From App Store or Google Play</p>
-        <div class="row">
-            <img src="/images/pay/app.jpg" alt="">
-            <img src="/images/pay/play.jpg" alt="">
-        </div>
-        <p>Secured Payment Gateways</p>
-        <img src="/images/pay/pay.png" alt="">
-    </div>
+            <div class="col install">
+                <h4>Install Our App!</h4>
+                <p4>From App Store or Google Play</p4>
+                <div class="row">
+                    <img src="./images/pay/app.jpg" alt="">
+                    <img src="./images/pay/play.jpg" alt="">
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="./images/pay/pay.png" alt="">
+            </div>
 
-    <div class="copright">
-        <p>&copy; 2024, Pet Parade - Best Shop for Your Pet!</p>
-    </div>
-</footer>
+            <div class="copright">
+                <p>C 2024, Pet Parade - Best Shop for Your Pet!</p>
+            </div>
+        </footer>
 
 <script src="script.js"></script>
 </body>

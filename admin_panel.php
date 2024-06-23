@@ -78,7 +78,7 @@ mysqli_close($conn);
                     <div class="sidebar-content">
                         <ul>
                             <li><a href="admin_panel.php" class="button1" href="#">Products</a></li>
-                            <li><a href="admin_orders.html" class="button2" href="#">Orders</a></li>
+                            <li><a href="admin_orders.php" class="button2" href="#">Orders</a></li>
                             <li><a href="admin_products.php" class="button3" href="#">Create Product</a></li>
                         </ul>
                     </div>

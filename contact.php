@@ -92,15 +92,15 @@ session_start();
 
             <div class="people">
                 <div>
-                    <img src="/images/people/1.png" alt="">
+                    <img src="./images/people/1.png" alt="">
                     <p><span>John Doe</span> Founder <br>Phone: +000 123 456 78 99 <br>Email: founder@example.com </p>
                 </div>
                 <div>
-                    <img src="/images/people/2.png" alt="">
+                    <img src="./images/people/2.png" alt="">
                     <p><span>Jonathan Do-er</span> Second-In Command <br>Phone: +000 987 654 32 11 <br>Email: 2ndinline@example.com </p>
                 </div>
                 <div>
-                    <img src="/images/people/3.png" alt="">
+                    <img src="./images/people/3.png" alt="">
                     <p><span>Jane Dodoe</span> General Manager <br>Phone: +000 091 832 59 22 <br>Email: manager@example.com </p>
                 </div>
             </div>
@@ -111,7 +111,7 @@ session_start();
                 <h4>Contact</h4>
                 <p><strong>Address:</strong> Example Road, Example Street, Filler City</p>
                 <p><strong>Phone:</strong> +02 1234 987/ (+92) 01 2345 5654</p>
-                <p><strong>Shop Hours:</strong> 09:00 - 18:00, Mon - Sat </p>
+                <p><strong>Shop Hours:</strong> 09:00 - 18:00, Tues - Sat </p>
                 <div class="follow">
                     <h4>Follow us!</h4>
                     <div class="icon">
@@ -142,11 +142,11 @@ session_start();
                 <h4>Install Our App!</h4>
                 <p4>From App Store or Google Play</p4>
                 <div class="row">
-                    <img src="/images/pay/app.jpg" alt="">
-                    <img src="/images/pay/play.jpg" alt="">
+                    <img src="./images/pay/app.jpg" alt="">
+                    <img src="./images/pay/play.jpg" alt="">
                 </div>
                 <p>Secured Payment Gateways</p>
-                <img src="/images/pay/pay.png" alt="">
+                <img src="./images/pay/pay.png" alt="">
             </div>
 
             <div class="copright">
