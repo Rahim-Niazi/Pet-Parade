@@ -2,12 +2,10 @@
 include_once('db_config.php');
 session_start();
 
-// Pagination settings
 $productsPerPage = 8;
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $offset = ($page - 1) * $productsPerPage;
 
-// Function to add product to cart
 function addToCart($product_id) {
     if(isset($_SESSION['cart'][$product_id])) {
         $_SESSION['cart'][$product_id] += 1;
@@ -16,7 +14,6 @@ function addToCart($product_id) {
     }
 }
 
-// Check if 'add' parameter is set in the URL and add the product to the cart
 if (isset($_GET['add'])) {
     $product_id = intval($_GET['add']);
     addToCart($product_id);

@@ -135,17 +135,17 @@ $products = fetchProductsFromDatabase();
 
 
         <section id="sm-banner" class="section-p1">
-            <div class="banner-box">
+        <div class="banner-box">
                 <h4>Best Deals</h4>
                 <h2>Buy 2 get 1 free!</h2>
                 <span>High quality products!</span>
-                <button class="white">Learn More</button>
+                <button class="white" onclick="window.location.href='shop.php';">Learn More</button>
             </div>
-            <div class="banner-box">
+            <div class="banner-box2">
                 <h4>Best Deals</h4>
                 <h2>Buy 2 get 1 free!</h2>
                 <span>High quality products!</span>
-                <button class="white">Learn More</button>
+                <button class="white" onclick="window.location.href='shop.php';">Learn More</button>
             </div>
         </section>
 
