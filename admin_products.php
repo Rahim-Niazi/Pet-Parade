@@ -6,9 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productName = $conn->real_escape_string($_POST['product_name']);
     $description = $conn->real_escape_string($_POST['description']);
     $price = $conn->real_escape_string($_POST['price']);
-    // Handle image upload
+
     $image = $_FILES['product_image'];
-    $imageName = $image['name'];
+    $imageName = $conn->real_escape_string($image['name']);
     $imageTmpName = $image['tmp_name'];
     $imageError = $image['error'];
     $imageSize = $image['size'];
@@ -39,7 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $imageError;
     }
 }
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
         </div>
-    </div>
+    </div>.
 
     <div class="col-md-9">
         <h2>Create Product</h2>
@@ -114,6 +118,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn btn-primary">Create Product</button>
         </form>
+    </div>
+    <div class="col-md-9">
+        <h2>Products</h2>
+
+        <?php
+        include 'db_config.php';
+
+        // Fetch product details including the image path
+        $sql = "SELECT * FROM products";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $productName = $row['product_name'];
+                $description = $row['description'];
+                $price = $row['price'];
+                $imagePath = $row['image_path']; // Assuming this is the column name for the image path in your database
+
+                // Display product details with image
+                echo '<div class="product">';
+                echo '<h2>' . $productName . '</h2>';
+                echo '<p>' . $description . '</p>';
+                echo '<p>Price: $' . $price . '</p>';
+                echo '<img src="' . $imagePath . '" alt="' . $productName . '" />';
+                echo '</div>';
+            }
+        } else {
+            echo "No products found.";
+        }
+
+        $conn->close();
+        ?>
     </div>
 </body>
 </html>

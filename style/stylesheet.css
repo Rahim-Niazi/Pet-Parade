@@ -161,7 +161,7 @@ body{
 /*Hero Banner*/
 
   #hero {
-    background-image: url('images/petaccessories.jpg');
+    background-image: url('../images/petaccessories.jpg');
     height: 90vh;
     width: 100%;
     background-size: cover;
@@ -182,7 +182,7 @@ body{
   }
   
   #hero button{
-    background-image: url("/images/button.png");
+    background-image: url("../images/button.png");
     background-color: transparent;
     color: #088178;
     border: 0;
@@ -942,7 +942,7 @@ label {
 
 
 
-/*START OF ADMIN PORTAL*/
+/*START OF ADMIN LOGIN*/
 
 body .admin {
   font-family: Arial, sans-serif;
@@ -1002,7 +1002,7 @@ body .admin {
 
 
 
-/*END OF ADMIN PORTAL*/
+/*END OF ADMIN LOGIN*/
 
 
 

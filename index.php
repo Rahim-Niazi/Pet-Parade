@@ -25,10 +25,8 @@ session_start();
                 <li><a href="shop.php">Shop</a></li>
                 <?php
                 if (isset($_SESSION['user_id'])) {
-                    // User is logged in, show logout button
                     echo '<li><a href="logout.php">Logout</a></li>';
                 } else {
-                    // User is not logged in, show sign up and login links
                     echo '<li><a href="signup.php">Sign Up</a></li>';
                     echo '<li><a href="login.php">Login</a></li>';
                 }
@@ -414,11 +412,11 @@ session_start();
                 <h4>Install Our App!</h4>
                 <p4>From App Store or Google Play</p4>
                 <div class="row">
-                    <img src="/images/pay/app.jpg" alt="">
-                    <img src="/images/pay/play.jpg" alt="">
+                    <img src="./images/pay/app.jpg" alt="">
+                    <img src="./images/pay/play.jpg" alt="">
                 </div>
                 <p>Secured Payment Gateways</p>
-                <img src="/images/pay/pay.png" alt="">
+                <img src="./images/pay/pay.png" alt="">
             </div>
 
             <div class="copright">

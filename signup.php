@@ -24,10 +24,8 @@ session_start();
                 <li><a href="shop.php">Shop</a></li>
                 <?php
                 if (isset($_SESSION['user_id'])) {
-                    // User is logged in, show logout button
                     echo '<li><a href="logout.php">Logout</a></li>';
                 } else {
-                    // User is not logged in, show sign up and login links
                     echo '<li><a href="signup.php">Sign Up</a></li>';
                     echo '<li><a href="login.php">Login</a></li>';
                 }
@@ -55,8 +53,6 @@ session_start();
             <input type="submit" value="Sign Up">
         </form>
     </section>
-
-    <!-- Your other sections and footer -->
 
     <script src="script.js"></script>
 </body>
