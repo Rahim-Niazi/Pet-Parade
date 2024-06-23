@@ -23,6 +23,13 @@ foreach ($cart as $product_id => $quantity) {
     $subtotal = $product['price'] * $quantity;
     $total += $subtotal;
 }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['discountedTotal'])) {
+    $discountedTotal = $_POST['discountedTotal'];
+} else {
+    // Handle the case where the discounted total is not available
+    $discountedTotal = 0;
+}
 ?>
 
 <!DOCTYPE html>

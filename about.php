@@ -100,11 +100,11 @@ session_start();
                 <h4>Install Our App!</h4>
                 <p4>From App Store or Google Play</p4>
                 <div class="row">
-                    <img src="/images/pay/app.jpg" alt="">
-                    <img src="/images/pay/play.jpg" alt="">
+                    <img src="./images/pay/app.jpg" alt="">
+                    <img src="./images/pay/play.jpg" alt="">
                 </div>
                 <p>Secured Payment Gateways</p>
-                <img src="/images/pay/pay.png" alt="">
+                <img src="./images/pay/pay.png" alt="">
             </div>
 
             <div class="copright">

@@ -503,6 +503,11 @@ footer .copyright{
   border-radius: 4px;
   color: #FFF;
   font-weight: 600;
+  margin-right: 10px;
+}
+
+#pagination a:last-child {
+  margin-right: 0;
 }
 
 #pagination{

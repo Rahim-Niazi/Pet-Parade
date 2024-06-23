@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_cart'])) {
     }
 }
 
-// Fetch cart items from session
+
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 ?>
 
@@ -115,12 +115,10 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
 <section id="cart-add" class="section-p1">
     <div id="coupon">
-        <h3>Apply Coupon</h3>
-        <div>
-            <input type="text" placeholder="Enter Your Coupon">
-            <button class="normal">Apply</button>
-        </div>
+        <input type="text" id="couponCode" placeholder="Enter coupon code">
+        <button onclick="applyCoupon()">Apply</button>
     </div>
+</div>
 
     <div id="subtotal">
         <h3>Total Sum</h3>
@@ -143,54 +141,55 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 </section>
 
 <footer class="section-p1">
-    <div class="col">
-        <h4>Contact</h4>
-        <p><strong>Address:</strong> Example Road, Example Street, Filler City</p>
-        <p><strong>Phone:</strong> +02 1234 987/ (+92) 01 2345 5654</p>
-        <p><strong>Shop Hours:</strong> 09:00 - 18:00, Mon - Sat </p>
-        <div class="follow">
-            <h4>Follow us!</h4>
-            <div class="icon">
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
+            <div class="col">
+                <h4>Contact</h4>
+                <p><strong>Address:</strong> Example Road, Example Street, Filler City</p>
+                <p><strong>Phone:</strong> +02 1234 987/ (+92) 01 2345 5654</p>
+                <p><strong>Shop Hours:</strong> 09:00 - 18:00, Tues - Sat </p>
+                <div class="follow">
+                    <h4>Follow us!</h4>
+                    <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col">
-        <h4>About</h4>
-        <a href="#">About us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms and Conditions</a>
-        <a href="#">Contact Us</a>
-    </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms and Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
 
-    <div class="col">
-        <h4>My Account</h4>
-        <a href="#">Sign In</a>
-        <a href="#">View Cart</a>
-        <a href="#">Track My Order</a>
-        <a href="#">Help</a>
-    </div>
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
 
-    <div class="col install">
-        <h4>Install Our App!</h4>
-        <p>From App Store or Google Play</p>
-        <div class="row">
-            <img src="/images/pay/app.jpg" alt="">
-            <img src="/images/pay/play.jpg" alt="">
-        </div>
-        <p>Secured Payment Gateways</p>
-        <img src="/images/pay/pay.png" alt="">
-    </div>
+            <div class="col install">
+                <h4>Install Our App!</h4>
+                <p4>From App Store or Google Play</p4>
+                <div class="row">
+                    <img src="./images/pay/app.jpg" alt="">
+                    <img src="./images/pay/play.jpg" alt="">
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="./images/pay/pay.png" alt="">
+            </div>
 
-    <div class="copright">
-        <p>&copy; 2024, Pet Parade - Best Shop for Your Pet!</p>
-    </div>
-</footer>
+            <div class="copright">
+                <p>C 2024, Pet Parade - Best Shop for Your Pet!</p>
+            </div>
+        </footer>
 
 <script src="script.js"></script>
+
 </body>
 
 </html>

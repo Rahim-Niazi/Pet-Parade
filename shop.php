@@ -2,6 +2,11 @@
 include_once('db_config.php');
 session_start();
 
+// Pagination settings
+$productsPerPage = 8;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$offset = ($page - 1) * $productsPerPage;
+
 // Function to add product to cart
 function addToCart($product_id) {
     if(isset($_SESSION['cart'][$product_id])) {
@@ -66,43 +71,61 @@ if (isset($_GET['add'])) {
 </section>
 
 <section id="product1" class="section-p1">
-    <div class="pro-container">
-        <?php
-        $sql = "SELECT product_id, product_name, description, price, Images FROM products";
-        $result = $conn->query($sql);
+        <div class="pro-container">
+            <?php
+            $sql = "SELECT product_id, product_name, description, price, Images FROM products LIMIT $offset, $productsPerPage";
+            $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo '<div class="pro" onclick="window.location.href=\'singleproduct.php?id=' . $row["product_id"] . '\';">';
-                echo '<img src="images/' . $row["Images"] . '" alt="">';
-                echo '<div class="des">';
-                echo '<span>' . htmlspecialchars($row["product_name"]) . '</span>';
-                echo '<h5>' . htmlspecialchars($row["description"]) . '</h5>';
-                echo '<div class="star">';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '<i class="fas fa-star"></i>';
-                echo '</div>';
-                echo '<h4>$' . htmlspecialchars($row["price"]) . '</h4>';
-                echo '</div>';
-               
-                echo '</div>';
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo '<div class="pro" onclick="window.location.href=\'singleproduct.php?id=' . $row["product_id"] . '\';">';
+                    echo '<img src="images/' . $row["Images"] . '" alt="">';
+                    echo '<div class="des">';
+                    echo '<span>' . htmlspecialchars($row["product_name"]) . '</span>';
+                    echo '<h5>' . htmlspecialchars($row["description"]) . '</h5>';
+                    echo '<div class="star">';
+                    echo '<i class="fas fa-star"></i>';
+                    echo '<i class="fas fa-star"></i>';
+                    echo '<i class="fas fa-star"></i>';
+                    echo '<i class="fas fa-star"></i>';
+                    echo '<i class="fas fa-star"></i>';
+                    echo '</div>';
+                    echo '<h4>$' . htmlspecialchars($row["price"]) . '</h4>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "No products found.";
             }
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-        ?>
-    </div>
-</section>
+            ?>
+        </div>
+    </section>
 
 <section id="pagination" class="section-p1">
-    <a href="#">1</a>
-    <a href="#">2</a>
-    <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
-</section>
+        <?php
+        $totalProductsSql = "SELECT COUNT(*) as total FROM products";
+        $totalProductsResult = $conn->query($totalProductsSql);
+        $totalProducts = $totalProductsResult->fetch_assoc()['total'];
+        
+        $totalPages = ceil($totalProducts / $productsPerPage);
+
+        // Previous page link
+        if ($page > 1) {
+            echo '<a href="?page=' . ($page - 1) . '"><i class="fal fa-long-arrow-alt-left"></i></a>';
+        }
+
+        // Page numbers
+        for ($i = 1; $i <= $totalPages; $i++) {
+            echo '<a href="?page=' . $i . '">' . $i . '</a>';
+        }
+
+        // Next page link
+        if ($page < $totalPages) {
+            echo '<a href="?page=' . ($page + 1) . '"><i class="fal fa-long-arrow-alt-right"></i></a>';
+        }
+        ?>
+    </section>
+
 
 <footer class="section-p1">
             <div class="col">

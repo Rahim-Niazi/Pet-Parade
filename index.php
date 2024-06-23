@@ -1,6 +1,21 @@
 <?php
 include_once('db_config.php');
 session_start();
+
+function fetchProductsFromDatabase() {
+    global $conn; 
+
+    $sql = "SELECT * FROM products"; 
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        return $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return [];
+}
+}
+
+$products = fetchProductsFromDatabase();
 ?>
 
 <!DOCTYPE html>
@@ -49,9 +64,8 @@ session_start();
     <h2>Super Value Deals</h2>
     <h1>On all Products</h1>
     <p>Save more with deals upto 70% off!</p>
-    <button>Shop now!</button>
-    </section>
-
+    <button onclick="window.location.href='shop.php';">Shop now!</button>
+</section>
 
         <section id="feature" class="section-p1">
             <div class="fe-box">
@@ -85,281 +99,40 @@ session_start();
             </div>
             </section>
         
-        <section id="product1" class="section-p1">
-            <h2>Featured Products</h2>
-            <p>Food for Pets</p>
-            <div class="pro-container">
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/catfood.jpg" alt="">
-                    <div class="des">
-                        <span>Whiskas</span>
-                        <h5>Kitten Wet food</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
+            <section id="product1" class="section-p1">
+    <h2>Featured Products</h2>
+    <p>Food for Pets</p>
+    <div class="pro-container">
+        <?php foreach ($products as $product) { ?>
+        <div class="pro" onclick="window.location.href='singleproduct.php?id=<?php echo $product['product_id']; ?>';">
+            <img src='images/<?php echo $product['Images']; ?>' alt='Product Image' class='product-image' style='object-fit: contain;'>
+            <div class="des">
+                <span><?php echo $product['product_name']; ?></span>
+                <h5><?php echo $product['description']; ?></h5>
+                <h4>$<?php echo $product['price']; ?></h4>
             </div>
-        </section>
+        </div>
+        <?php } ?>
+    </div>
+</section>
 
-        <section id="banner" class="section-m1">
-            <h4>Exchange Services</h4>
-            <h2>Up to <span>70% off</span> All pet products and accessories </h2>
-            <button class="normal">Explore more</button>
-        </section>
-
-        <section id="product1" class="section-p1">
-            <h2>New Products</h2>
-            <p>Latest in the market!</p>
-            <div class="pro-container">
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
-                <div class="pro">
-                    <img src="images/chewtoy.jpg" alt="">
-                    <div class="des">
-                        <span>Chew Toy</span>
-                        <h5>Dog Chew toy</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href="#"><i class="fal fa-shopping-cart cart"></i> </a>
-                </div>
+<section id="product1" class="section-p1">
+    <h2>New Products</h2>
+    <p>Latest in the market!</p>
+    <div class="pro-container">
+        <?php foreach ($products as $product) { ?>
+        <div class="pro" onclick="window.location.href='singleproduct.php?id=<?php echo $product['product_id']; ?>';">
+            <img src='images/<?php echo $product['Images']; ?>' alt='Product Image' class='product-image' style='object-fit: contain;'>
+            <div class="des">
+                <span><?php echo $product['product_name']; ?></span>
+                <h5><?php echo $product['description']; ?></h5>
+                <h4>$<?php echo $product['price']; ?></h4>
             </div>
-        </section>
+        </div>
+        <?php } ?>
+    </div>
+</section>
+
 
         <section id="sm-banner" class="section-p1">
             <div class="banner-box">
