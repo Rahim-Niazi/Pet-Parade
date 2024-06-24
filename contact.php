@@ -123,19 +123,21 @@ session_start();
             </div>
             <div class="col">
                 <h4>About</h4>
-                <a href="#">About us</a>
-                <a href="#">Delivery Information</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms and Conditions</a>
-                <a href="#">Contact Us</a>
+                <a href="about.php">About us</a>
+                <a href="contact.php">Contact Us</a>
             </div>
 
             <div class="col">
                 <h4>My Account</h4>
-                <a href="#">Sign In</a>
-                <a href="#">View Cart</a>
-                <a href="#">Track My Order</a>
-                <a href="#">Help</a>
+                <?php
+                    if (isset($_SESSION['user_id'])) {
+                    echo '<a href="logout.php">Logout</a>';
+                    } else {
+                    echo '<a href="login.php">Login</a>';
+                    }
+                    ?>
+                <a href="cart.php">View Cart</a>
+                <a href="contact.php">Help</a>
             </div>
 
             <div class="col install">
