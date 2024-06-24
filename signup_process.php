@@ -23,8 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$username', '$email', '$password', '$first_name', '$last_name')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Signup successful. You can now <a href='login.php'>login</a>.";
-    } else {
+        echo "<script>alert('Registration successful. You will now be taken to Home Page.')</script>";
+        echo "<script>window.location.href = 'index.php'</script>";
+        } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }

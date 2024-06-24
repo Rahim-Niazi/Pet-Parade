@@ -45,35 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['discountedTotal'])) {
 </head>
 
     <body>
-    <section id="header">
-    <h3>Pet Perade</h3>
-    <div>
-        <ul id="navbar">
-            <li><a class="active" href="index.php">Home</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <?php
-            if (isset($_SESSION['user_id'])) {
-                echo '<li><a href="logout.php">Logout</a></li>';
-            } else {
-                echo '<li><a href="signup.php">Sign Up</a></li>';
-                echo '<li><a href="login.php">Login</a></li>';
-            }
-            ?>
-            <li><a href="about.php">About</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li id="lg-bag"><a href="cart.php"><i class="fa fa-shopping-bag"></i></a></li>
-            <a href="#" id="close"><i class="far fa-times"></i></a>
-        </ul>
-    </div>
-    <div id="mobile">
-        <a href="cart.php"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-        <i id="bar" class="fas fa-outdent"></i>
-    </div>
-</section>
+    <?php include 'header.php'; ?>
+
 
 <section id="page-header" class="contact-header">
     <h2>Checkout</h2>
-    <p>Review your order and enter your details</p>
+    <p>Review your order and enter your details.</p>
 </section>
 
 <section id="checkout" class="section-p1">
@@ -124,55 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['discountedTotal'])) {
 </section>
 
 
-<footer class="section-p1">
-            <div class="col">
-                <h4>Contact</h4>
-                <p><strong>Address:</strong> Example Road, Example Street, Filler City</p>
-                <p><strong>Phone:</strong> +02 1234 987/ (+92) 01 2345 5654</p>
-                <p><strong>Shop Hours:</strong> 09:00 - 18:00, Tues - Sat </p>
-                <div class="follow">
-                    <h4>Follow us!</h4>
-                    <div class="icon">
-                        <i class="fab fa-facebook-f"></i>
-                        <i class="fab fa-twitter"></i>
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <h4>About</h4>
-                <a href="about.php">About us</a>
-                <a href="contact.php">Contact Us</a>
-            </div>
-
-            <div class="col">
-                <h4>My Account</h4>
-                <?php
-                    if (isset($_SESSION['user_id'])) {
-                    echo '<a href="logout.php">Logout</a>';
-                    } else {
-                    echo '<a href="login.php">Login</a>';
-                    }
-                    ?>
-                <a href="cart.php">View Cart</a>
-                <a href="contact.php">Help</a>
-            </div>
-
-            <div class="col install">
-                <h4>Install Our App!</h4>
-                <p4>From App Store or Google Play</p4>
-                <div class="row">
-                    <img src="./images/pay/app.jpg" alt="">
-                    <img src="./images/pay/play.jpg" alt="">
-                </div>
-                <p>Secured Payment Gateways</p>
-                <img src="./images/pay/pay.png" alt="">
-            </div>
-
-            <div class="copright">
-                <p>C 2024, Pet Parade - Best Shop for Your Pet!</p>
-            </div>
-        </footer>
+<?php include 'footer.php'; ?>
 
 <script src="script.js"></script>
 </body>

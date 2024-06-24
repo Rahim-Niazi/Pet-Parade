@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active ml-auto logout-button">
-                    <a class="nav-link" href="#">Logout <span class="sr-only"></span></a>
+                    <a class="nav-link" href="admin_logout.php">Logout <span class="sr-only"></span></a>
                 </li>
             </ul>
         </div>
