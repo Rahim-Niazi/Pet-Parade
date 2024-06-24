@@ -4,10 +4,8 @@ $username = "root";
 $password = "";
 $dbname = "petparadedb";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -23,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$username', '$email', '$password', '$first_name', '$last_name')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Registration successful. You will now be taken to Home Page.')</script>";
-        echo "<script>window.location.href = 'index.php'</script>";
+        echo "<script>alert('Registration successful. You will now be taken to the Login Page.')</script>";
+        echo "<script>window.location.href = 'login.php'</script>";
         } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
