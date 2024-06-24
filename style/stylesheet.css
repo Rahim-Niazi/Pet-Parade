@@ -980,7 +980,11 @@ label {
     border-collapse: separate;
     border-spacing: 0 10px;
   }
-  
+/*
+  .order-details table tr {
+    background-color: #9f9d9d;
+  }
+*/
   .order-details table th,
   .order-details table td {
     padding: 8px; 
