@@ -844,6 +844,21 @@ footer .copyright{
   padding: 12px 20px;
 }
 
+#subtotal a.button.normal,
+#subtotal a.button.white {
+  background-color: #088178;
+  color: #FFF;
+  padding: 12px 20px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#subtotal a.button.normal:hover,
+#subtotal a.button.white:hover {
+  background-color: #065c4e;
+  color: #FFF;
+}
+
 #subtotal{
   width: 50%;
   margin-bottom: 30px;
@@ -952,6 +967,25 @@ label {
   border-radius: 4px;
   box-sizing: border-box;
   }
+
+  .order-details {
+    margin-top: 20px; 
+  }
+  
+  .order-details h3 {
+    margin-bottom: 10px; 
+  }
+  
+  .order-details table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+  
+  .order-details table th,
+  .order-details table td {
+    padding: 8px; 
+  }
+  
 
 
 
@@ -1156,7 +1190,7 @@ input[type="file"] {
 }
 
 button[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #088178;
   color: #fff;
   padding: 10px 20px;
   border: none;

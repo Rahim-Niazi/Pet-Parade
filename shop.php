@@ -36,7 +36,8 @@ if (isset($_GET['add'])) {
 
 <body>
 <section id="header">
-    <a href="#"><img src="images/" class="logo" alt=""></a>
+    <h3>Pet Perade</h3>
+
 
     <div>
         <ul id="navbar">

@@ -45,7 +45,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
 <body>
 <section id="header">
-    <a href="#"><img src="images/" class="logo" alt=""></a>
+    <h3>Pet Perade</h3>
     <div>
         <ul id="navbar">
             <li><a class="active" href="index.php">Home</a></li>
@@ -139,7 +139,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
         <?php if (isset($_SESSION['user_id'])): ?>
             <a href="checkout.php" class="button normal">Proceed to Checkout</a>
         <?php else: ?>
-            <a href="login.php" class="button normal">Proceed to Checkout</a>
+            <a href="login.php" class="button white">Proceed to Checkout</a>
         <?php endif; ?>
     </div>
 </section>
