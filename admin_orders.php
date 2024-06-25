@@ -6,28 +6,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch orders data from the database
-$sql = "SELECT * FROM orders";
-$result = $conn->query($sql);
-
-// Check if there are any orders
-if ($result->num_rows > 0) {
-    // Output data of each row
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['order_id'] . "</td>";
-        echo "<td>" . $row['user_id'] . "</td>";
-        echo "<td>" . $row['shipping_name'] . "</td>";
-        echo "<td>" . $row['shipping_address'] . "</td>";
-        echo "<td>" . $row['product_id'] . "</td>";
-        echo "<td>" . $row['quantity'] . "</td>";
-        echo "<td>$" . $row['price'] . "</td>";
-        echo "</tr>";
-    }
-} else {
-    echo "<tr><td colspan='7'>No orders found</td></tr>";
-}
-
 // Close connection
 $conn->close();
 ?>

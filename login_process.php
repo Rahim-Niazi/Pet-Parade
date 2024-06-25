@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $username;
-            $_SESSION['user_id'] = $row['user_id']; // Assuming user_id is the primary key of the users table
-            header("Location: index.php"); // Redirect to dashboard or any other page
+            $_SESSION['user_id'] = $row['user_id'];
+            header("Location: index.php"); 
             exit();
         } else {
             echo "Invalid password.";

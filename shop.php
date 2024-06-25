@@ -82,17 +82,14 @@ if (isset($_GET['add'])) {
         
         $totalPages = ceil($totalProducts / $productsPerPage);
 
-        // Previous page link
         if ($page > 1) {
             echo '<a href="?page=' . ($page - 1) . '"><i class="fal fa-long-arrow-alt-left"></i></a>';
         }
 
-        // Page numbers
         for ($i = 1; $i <= $totalPages; $i++) {
             echo '<a href="?page=' . $i . '">' . $i . '</a>';
         }
 
-        // Next page link
         if ($page < $totalPages) {
             echo '<a href="?page=' . ($page + 1) . '"><i class="fal fa-long-arrow-alt-right"></i></a>';
         }
