@@ -14,7 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: admin_panel.php");
         exit();
     } else {
-        echo "Invalid username or password";
+        echo "<script>alert('Login Unsuccessful. Invalid Username or Password.')</script>";
+        echo "<script>window.location.href = 'admin_login.php'</script>";
     }
 }
 ?>
