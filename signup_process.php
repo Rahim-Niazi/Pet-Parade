@@ -17,14 +17,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
 
-    $sql = "INSERT INTO users (username, email, password, first_name, last_name)
-            VALUES ('$username', '$email', '$password', '$first_name', '$last_name')";
+    $check_sql = "SELECT * FROM users WHERE username='$username' OR email='$email'";
+    $result = $conn->query($check_sql);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('Registration successful. You will now be taken to the Login Page.')</script>";
-        echo "<script>window.location.href = 'login.php'</script>";
+    if ($result->num_rows > 0) {
+        echo "<script>alert('Username or email already exists. Please try with a different username or email.');</script>";
+        echo "<script>window.location.href = 'signup.php'</script>";
+
+    } else {
+        $sql = "INSERT INTO users (username, email, password, first_name, last_name)
+                VALUES ('$username', '$email', '$password', '$first_name', '$last_name')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Registration successful. You will now be taken to the Login Page.')</script>";
+            echo "<script>window.location.href = 'login.php'</script>";
         } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
     }
 }
 

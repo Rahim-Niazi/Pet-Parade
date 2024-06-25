@@ -27,10 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php"); 
             exit();
         } else {
-            echo "Invalid password.";
+            echo "<script>alert('Login Unsuccessful. Invalid Password.')</script>";
+            echo "<script>window.location.href = 'login.php'</script>";
         }
     } else {
-        echo "User not found.";
+        echo "<script>alert('Login Unsuccessful. Invalid Username.')</script>";
+        echo "<script>window.location.href = 'login.php'</script>";
     }
 }
 
