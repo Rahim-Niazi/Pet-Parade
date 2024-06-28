@@ -1,9 +1,16 @@
 <?php
-include_once('db_config.php');
+session_start();
+
+if (!isset($_SESSION['admin'])) {
+    header("Location: admin_login.php");
+    exit();
+}
+
+require_once 'db_config.php';
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 // Close connection
@@ -36,16 +43,6 @@ $conn->close();
             </ul>
         </div>
     </nav>
-
-    <div class="sidebar">   
-        <div class="sidebar-content">
-            <ul>
-                <li><a href="#">Button 1</a></li>
-                <li><a href="#">Button 2</a></li>
-                <li><a href="#">Button 3</a></li>
-            </ul>
-        </div>
-    </div>
 
     <div class="container-fluid">
         <div class="row">

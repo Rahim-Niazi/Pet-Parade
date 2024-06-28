@@ -1,6 +1,17 @@
 <?php
 session_start();
-include 'db_config.php';
+
+if (!isset($_SESSION['admin'])) {
+    header("Location: admin_login.php");
+    exit();
+}
+
+require_once 'db_config.php';
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productName = $conn->real_escape_string($_POST['product_name']);
