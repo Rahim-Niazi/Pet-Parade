@@ -51,7 +51,7 @@ $conn->close();
         <h2>$<?php echo htmlspecialchars($product['price']); ?></h2>
         <form action="add_to_cart.php" method="POST">
             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-            <input type="number" name="quantity" value="1" min="1">
+            <input type="number" name="quantity" value="1" min="1" max="10">
             <button type="submit" class="normal">Add to Cart</button>
         </form>
         <h4>Product Details</h4>

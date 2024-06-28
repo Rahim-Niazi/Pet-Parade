@@ -77,7 +77,7 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                     echo '<td><img src="images/' . htmlspecialchars($product['Images']) . '" alt=""></td>';
                     echo '<td>' . htmlspecialchars($product['product_name']) . '</td>';
                     echo '<td>$' . htmlspecialchars($product['price']) . '</td>';
-                    echo '<td><input type="number" name="quantities[' . $product['product_id'] . ']" value="' . $quantity . '" min="1"></td>';
+                    echo '<td><input type="number" name="quantities[' . $product['product_id'] . ']" value="' . $quantity . '" min="1" max="10"></td>';
                     echo '<td>$' . htmlspecialchars($subtotal) . '</td>';
                     echo '</tr>';
                 }
